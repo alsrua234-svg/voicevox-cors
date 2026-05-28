@@ -7,7 +7,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN echo '#!/bin/bash' > /start.sh && \
     echo 'set -e' >> /start.sh && \
-    echo '/opt/voicevox_engine/run --host 127.0.0.1 --port 50021 &' >> /start.sh && \
+    echo '/opt/voicevox_engine/run --host 127.0.0.1 --port 50021 --cors_policy_mode all &' >> /start.sh && \
     echo 'sleep 5' >> /start.sh && \
     echo 'exec nginx -g "daemon off;"' >> /start.sh && \
     chmod +x /start.sh
